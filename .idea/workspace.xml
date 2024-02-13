@@ -4,13 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="452c4522-4f3c-481e-92ec-5a6312160e6a" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pyproject.toml" beforeDir="false" afterPath="$PROJECT_DIR$/pyproject.toml" afterDir="false" />
-    </list>
+    <list default="true" id="452c4522-4f3c-481e-92ec-5a6312160e6a" name="Changes" comment="Add simulated annealing algorithm for dinner party seat optimization&#10;&#10;Implemented a simulated annealing algorithm in 'main.py' to optimize the seating arrangement for a dinner party based on guests' relationships. The relationship and familiarity level of each pair of guests can be inputted and saved for further use. Added numpy as a project dependency and updated README with project" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -92,12 +86,25 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1707859952130</updated>
-      <workItem from="1707859956360" duration="2775000" />
+      <workItem from="1707859956360" duration="3117000" />
     </task>
+    <task id="LOCAL-00001" summary="Add simulated annealing algorithm for dinner party seat optimization&#10;&#10;Implemented a simulated annealing algorithm in 'main.py' to optimize the seating arrangement for a dinner party based on guests' relationships. The relationship and familiarity level of each pair of guests can be inputted and saved for further use. Added numpy as a project dependency and updated README with project explanation and usage examples. Various settings and">
+      <option name="closed" value="true" />
+      <created>1707862940039</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1707862940039</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Add simulated annealing algorithm for dinner party seat optimization&#10;&#10;Implemented a simulated annealing algorithm in 'main.py' to optimize the seating arrangement for a dinner party based on guests' relationships. The relationship and familiarity level of each pair of guests can be inputted and saved for further use. Added numpy as a project dependency and updated README with project" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add simulated annealing algorithm for dinner party seat optimization&#10;&#10;Implemented a simulated annealing algorithm in 'main.py' to optimize the seating arrangement for a dinner party based on guests' relationships. The relationship and familiarity level of each pair of guests can be inputted and saved for further use. Added numpy as a project dependency and updated README with project" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/seatingnightmare$main.coverage" NAME="main Coverage Results" MODIFIED="1707862355637" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />

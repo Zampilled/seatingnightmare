@@ -5,36 +5,22 @@ import random
 import pickle
 import os
 
-# guests list
-guests = ["Alex", "Aidan", "Luke", "Rees", "Marcus", "Pres", "Roisin", "Rory", "Ginge", "Neasa", "Jenn", "Colm",
-          "Morgan", "Conner", "Abi"]
 
-"""
-RELATIONSHIP RATINGS
-1 - Never Met
-2 - Met Once or Twice
-3 - Solid Acquaintances 
-4 - Good Mates
-5 - Soul Mates truly Connected 
-"""
+def modify_relations():
+    """
+    Prompts the user to enter the names of two persons and their new relationship level.
+    Updates the relationship level between the two persons in the 'relation' dictionary.
+    Persists the updated 'relation' dictionary in a file named 'relation_data.pkl'.
 
-relation = {}
-if os.path.exists('relation_data.pkl'):
-    with open('relation_data.pkl', 'rb') as f:
-        relation = pickle.load(f)
-else:
-    for i in range(len(guests)):
-        for j in range(i + 1, len(guests)):
-            relation[(guests[i], guests[j])] = int(
-                input(f"Enter relationship from 1-5 for {guests[i]} and {guests[j]}: "))
-    with open('relation_data.pkl', 'wb') as f:
-        pickle.dump(relation, f)
-
-familiarity = np.ones((15, 15)) * 5
-for i in range(len(guests)):
-    for j in range(i + 1, len(guests)):
-        familiarity[i][j] = relation[(guests[i], guests[j])]
-        familiarity[j][i] = familiarity[i][j]
+    :return: None
+    """
+    person1 = input("Enter first person's name: ")
+    person2 = input("Enter second person's name: ")
+    if person1 in guests and person2 in guests:
+        new_relationship = int(input(f"Enter new relationship level (1-5) for {person1} and {person2}: "))
+        relation[(person1, person2)] = new_relationship
+        with open('relation_data.pkl', 'wb') as f:
+            pickle.dump(relation, f)
 
 
 def get_total_familiarity(arrangement):
@@ -99,11 +85,45 @@ def simulated_annealing(arrangement, optimize='min', T=5000, T_min=0.01, alpha=0
     return arrangement
 
 
+
 if __name__ == '__main__':
+    # If you want to modify relations, uncomment the following line:
+
+    # guests list
+    guests = ["Alex", "Aidan", "Luke", "Rees", "Marcus", "Pres", "Roisin", "Rory", "Ginge", "Neasa", "Jenn", "Colm",
+              "Morgan", "Conner", "Abi"]
+
+    """
+    RELATIONSHIP RATINGS
+    1 - Never Met
+    2 - Met Once or Twice
+    3 - Solid Acquaintances 
+    4 - Good Mates
+    5 - Soul Mates truly Connected 
+    """
+
+    relation = {}
+    if os.path.exists('relation_data.pkl'):
+        with open('relation_data.pkl', 'rb') as f:
+            relation = pickle.load(f)
+    else:
+        for i in range(len(guests)):
+            for j in range(i + 1, len(guests)):
+                relation[(guests[i], guests[j])] = int(
+                    input(f"Enter relationship from 1-5 for {guests[i]} and {guests[j]}: "))
+        with open('relation_data.pkl', 'wb') as f:
+            pickle.dump(relation, f)
+
+    familiarity = np.ones((15, 15)) * 5
+    for i in range(len(guests)):
+        for j in range(i + 1, len(guests)):
+            familiarity[i][j] = relation[(guests[i], guests[j])]
+            familiarity[j][i] = familiarity[i][j]
+
     initial_arrangement = guests
 
     # Use 'max' for maximizing and 'min' for minimizing total familiarity
-    optimal_arrangement = simulated_annealing(initial_arrangement, optimize='min')
+    optimal_arrangement = simulated_annealing(initial_arrangement, optimize='max')
 
     print('Optimal arrangement:', optimal_arrangement)
     print('Total familiarity:', get_total_familiarity(optimal_arrangement))
