@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="452c4522-4f3c-481e-92ec-5a6312160e6a" name="Changes" comment="Add simulated annealing algorithm for dinner party seat optimization&#10;&#10;Implemented a simulated annealing algorithm in 'main.py' to optimize the seating arrangement for a dinner party based on guests' relationships. The relationship and familiarity level of each pair of guests can be inputted and saved for further use. Added numpy as a project dependency and updated README with project" />
+    <list default="true" id="452c4522-4f3c-481e-92ec-5a6312160e6a" name="Changes" comment="Update main.py to include relationship modification function&#10;&#10;Refactored the main.py script to include a method for modifying guest relationship levels. User is now prompted to input names of two persons and their new relationship level. The method dynamically updates a persistent relationship data file. Other minor code rearrangements were also done for improved readability.">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pyproject.toml" beforeDir="false" afterPath="$PROJECT_DIR$/pyproject.toml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -86,7 +90,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1707859952130</updated>
-      <workItem from="1707859956360" duration="3117000" />
+      <workItem from="1707859956360" duration="5394000" />
     </task>
     <task id="LOCAL-00001" summary="Add simulated annealing algorithm for dinner party seat optimization&#10;&#10;Implemented a simulated annealing algorithm in 'main.py' to optimize the seating arrangement for a dinner party based on guests' relationships. The relationship and familiarity level of each pair of guests can be inputted and saved for further use. Added numpy as a project dependency and updated README with project explanation and usage examples. Various settings and">
       <option name="closed" value="true" />
@@ -96,7 +100,15 @@
       <option name="project" value="LOCAL" />
       <updated>1707862940039</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Update main.py to include relationship modification function&#10;&#10;Refactored the main.py script to include a method for modifying guest relationship levels. User is now prompted to input names of two persons and their new relationship level. The method dynamically updates a persistent relationship data file. Other minor code rearrangements were also done for improved readability.">
+      <option name="closed" value="true" />
+      <created>1707863486996</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1707863486996</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -104,9 +116,11 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Add simulated annealing algorithm for dinner party seat optimization&#10;&#10;Implemented a simulated annealing algorithm in 'main.py' to optimize the seating arrangement for a dinner party based on guests' relationships. The relationship and familiarity level of each pair of guests can be inputted and saved for further use. Added numpy as a project dependency and updated README with project" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add simulated annealing algorithm for dinner party seat optimization&#10;&#10;Implemented a simulated annealing algorithm in 'main.py' to optimize the seating arrangement for a dinner party based on guests' relationships. The relationship and familiarity level of each pair of guests can be inputted and saved for further use. Added numpy as a project dependency and updated README with project" />
+    <MESSAGE value="Add simulated annealing algorithm for dinner party seat optimization&#10;&#10;Implemented a simulated annealing algorithm in 'main.py' to optimize the seating arrangement for a dinner party based on guests' relationships. The relationship and familiarity level of each pair of guests can be inputted and saved for further use. Added numpy as a project dependency and updated README with project metadata files have also been updated." />
+    <MESSAGE value="Update main.py to include relationship modification function&#10;&#10;Refactored the main.py script to include a method for modifying guest relationship levels. User is now prompted to input names of two persons and their new relationship level. The method dynamically updates a persistent relationship data file. Other minor code rearrangements were also done for improved readability." />
+    <option name="LAST_COMMIT_MESSAGE" value="Update main.py to include relationship modification function&#10;&#10;Refactored the main.py script to include a method for modifying guest relationship levels. User is now prompted to input names of two persons and their new relationship level. The method dynamically updates a persistent relationship data file. Other minor code rearrangements were also done for improved readability." />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/seatingnightmare$main.coverage" NAME="main Coverage Results" MODIFIED="1707862355637" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/seatingnightmare$main.coverage" NAME="main Coverage Results" MODIFIED="1707864428112" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

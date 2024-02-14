@@ -4,7 +4,8 @@ import copy
 import random
 import pickle
 import os
-
+from tqdm import tqdm
+import matplotlib.pyplot as plt
 
 def modify_relations():
     """
@@ -21,6 +22,36 @@ def modify_relations():
         relation[(person1, person2)] = new_relationship
         with open('relation_data.pkl', 'wb') as f:
             pickle.dump(relation, f)
+
+def display_arrangement_in_circle(arrangement):
+    """
+    Display the arrangement in a circular way as a seating chart.
+
+    :param arrangement: A list of guest's names
+    :return: None
+    """
+    n = len(arrangement)
+    x_values = []
+    y_values = []
+    labels = []
+
+    angle = 2 * math.pi / n
+    for i in range(n):
+        x = 10 * math.cos(i * angle)
+        y = 10 * math.sin(i * angle)
+        x_values.append(x)
+        y_values.append(y)
+        labels.append(arrangement[i])
+
+    plt.figure(figsize=(10,10))
+    plt.scatter(x_values, y_values)
+    for i, name in enumerate(labels):
+        plt.annotate(name, (x_values[i], y_values[i]), fontsize=20)
+    plt.title("Guest Seating Arrangement")
+    plt.xlabel("X")
+    plt.ylabel("Y")
+    plt.show()
+
 
 
 def get_total_familiarity(arrangement):
@@ -78,8 +109,12 @@ def simulated_annealing(arrangement, optimize='min', T=5000, T_min=0.01, alpha=0
         new_familiarity = get_total_familiarity(new_arrangement)
 
         delta = new_familiarity - current_familiarity
-        if (delta < 0 and optimize == 'min') or (delta > 0 and optimize == 'max') or random.random() < math.exp(
-                -delta / T):
+        try:
+            accept_probability = math.exp(-delta / T)
+        except OverflowError:
+            accept_probability = 0
+
+        if (delta < 0 and optimize == 'min') or (delta > 0 and optimize == 'max') or random.random() < accept_probability:
             arrangement = new_arrangement
         T = T * alpha
     return arrangement
@@ -88,6 +123,7 @@ def simulated_annealing(arrangement, optimize='min', T=5000, T_min=0.01, alpha=0
 
 if __name__ == '__main__':
     # If you want to modify relations, uncomment the following line:
+    what_you_want_to_get = 'max'
 
     # guests list
     guests = ["Alex", "Aidan", "Luke", "Rees", "Marcus", "Pres", "Roisin", "Rory", "Ginge", "Neasa", "Jenn", "Colm",
@@ -123,7 +159,14 @@ if __name__ == '__main__':
     initial_arrangement = guests
 
     # Use 'max' for maximizing and 'min' for minimizing total familiarity
-    optimal_arrangement = simulated_annealing(initial_arrangement, optimize='max')
+    best_arrangement = initial_arrangement
+    best_familiarity = get_total_familiarity(best_arrangement)
+    for _ in tqdm(range(1000)):
+        optimal_arrangement = simulated_annealing(initial_arrangement, what_you_want_to_get)
+        if (what_you_want_to_get == 'min' and get_total_familiarity(optimal_arrangement) < best_familiarity) or (what_you_want_to_get == 'max' and get_total_familiarity(optimal_arrangement) > best_familiarity):
+            best_arrangement = optimal_arrangement
+            best_familiarity = get_total_familiarity(best_arrangement)
 
-    print('Optimal arrangement:', optimal_arrangement)
-    print('Total familiarity:', get_total_familiarity(optimal_arrangement))
+    print('Optimal arrangement:', best_arrangement)
+    print('Total familiarity:', best_familiarity)
+    display_arrangement_in_circle(best_arrangement)
